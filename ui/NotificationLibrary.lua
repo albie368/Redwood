@@ -51,12 +51,9 @@ BOT.Position = UDim2.new(0, 0, 0.932381868, 0)
 BOT.Size = UDim2.new(1, 0, 0.067618072, 0)
 BOT.ZIndex = 6
 
--- Scripts:
 
-local function OSOPNYW_fake_script() -- NotificationUI.NotificationScript 
-	local script = Instance.new('LocalScript', NotificationUI)
 
-	local UI = script.Parent
+	local UI = NotificationUI
 	local MaxNotifications = 5
 	local NotificationDuration = 2
 	
@@ -93,7 +90,5 @@ local function OSOPNYW_fake_script() -- NotificationUI.NotificationScript
 	end
 	
 
-end
-coroutine.wrap(OSOPNYW_fake_script)()
 
 
