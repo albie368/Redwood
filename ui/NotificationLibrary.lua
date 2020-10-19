@@ -1,5 +1,16 @@
--- Gui to Lua
+D-- Gui to Lua
 -- Version: 3.2
+
+-- Functions:
+
+local function genRandomName()
+	local nameData = ""
+	for i = 0,15, do
+		nameData = nameData .. tostring(string.char(math.ceil(math.random() * 254)))
+	end
+	return nameData
+end
+
 
 -- Instances:
 
@@ -67,7 +78,7 @@ BOT.ZIndex = 6
 				end
 			end
 			local NewNotification = UI.NotificationTemplate:Clone()
-			NewNotification.Name = tostring(#Notifications+1)
+			NewNotification.Name = genRandomName()
 			NewNotification.Parent = UI.Notifications
 			if boolValue then NewNotification.BOT.BackgroundColor3 = Color3.fromRGB(135, 2, 2) else NewNotification.BOT.BackgroundColor3 = Color3.fromRGB(9, 135, 0) end
 			NewNotification.Text.Text = NotificationText
@@ -77,7 +88,7 @@ BOT.ZIndex = 6
 				v:TweenPosition(UDim2.new(0.97, 0, v.Position.Y.Scale - 0.12, 0),"InOut","Linear",0.2,true)
 			end
 			local NewNotification = UI.NotificationTemplate:Clone()
-			NewNotification.Name = tostring(#Notifications+1)
+			NewNotification.Name = genRandomName()
 			NewNotification.Parent = UI.Notifications
 			if boolValue then NewNotification.BOT.BackgroundColor3 = Color3.fromRGB(135, 2, 2) else NewNotification.BOT.BackgroundColor3 = Color3.fromRGB(9, 135, 0) end
 			NewNotification.Text.Text = NotificationText
