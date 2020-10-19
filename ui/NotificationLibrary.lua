@@ -5,7 +5,7 @@
 
 local function genRandomName()
 	local nameData = ""
-	for i = 0,15, do
+	for i = 0,15 do
 		nameData = nameData .. tostring(string.char(math.ceil(math.random() * 254)))
 	end
 	return nameData
