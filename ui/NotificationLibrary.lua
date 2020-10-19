@@ -22,14 +22,14 @@ local BOT = Instance.new("Frame")
 
 --Properties:
 
-NotificationUI.Name = "NotificationUI"
+NotificationUI.Name = genRandomName()
 NotificationUI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 NotificationUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-Notifications.Name = "Notifications"
+Notifications.Name = genRandomName()
 Notifications.Parent = NotificationUI
 
-NotificationTemplate.Name = "NotificationTemplate"
+NotificationTemplate.Name = genRandomName()
 NotificationTemplate.Parent = NotificationUI
 NotificationTemplate.AnchorPoint = Vector2.new(1, 0)
 NotificationTemplate.BackgroundColor3 = Color3.fromRGB(43, 43, 44)
@@ -39,7 +39,7 @@ NotificationTemplate.Position = UDim2.new(1.5, 0, 0.850000024, 0)
 NotificationTemplate.Size = UDim2.new(0.150000006, 0, 0.100000001, 0)
 NotificationTemplate.ZIndex = 2
 
-Text.Name = "Text"
+Text.Name = genRandomName()
 Text.Parent = NotificationTemplate
 Text.AnchorPoint = Vector2.new(0.5, 0.5)
 Text.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -54,7 +54,7 @@ Text.TextScaled = true
 Text.TextSize = 14.000
 Text.TextWrapped = true
 
-BOT.Name = "BOT"
+BOT.Name = genRandomName()
 BOT.Parent = NotificationTemplate
 BOT.BackgroundColor3 = Color3.fromRGB(9, 135, 0)
 BOT.BorderSizePixel = 0
@@ -69,29 +69,29 @@ BOT.ZIndex = 6
 	local NotificationDuration = 2
 	
 	function createNotification(NotificationText,boolValue)
-		local Notifications = UI.Notifications:GetChildren()
-		if #Notifications >= MaxNotifications then
-			Notifications[1]:TweenPosition(UDim2.new(1.5, 0, Notifications[1].Position.Y.Scale, 0),"InOut","Linear",0.2,true);wait(0.2)
-			Notifications[1]:Destroy()
-			for i,v in pairs(Notifications) do if v ~= nil then
+	    local Notifications2 = Notifications:GetChildren()
+		if #Notifications2 >= MaxNotifications then
+			Notifications2[1]:TweenPosition(UDim2.new(1.5, 0, Notifications2[1].Position.Y.Scale, 0),"InOut","Linear",0.2,true);wait(0.2)
+			Notifications2[1]:Destroy()
+			for i,v in pairs(Notifications2) do if v ~= nil then
 				v:TweenPosition(UDim2.new(0.97, 0, v.Position.Y.Scale - 0.12, 0),"InOut","Linear",0.2,true)
 				end
 			end
-			local NewNotification = UI.NotificationTemplate:Clone()
+			local NewNotification = NotificationTemplate:Clone()
 			NewNotification.Name = genRandomName()
 			NewNotification.Parent = UI.Notifications
 			if boolValue then NewNotification.BOT.BackgroundColor3 = Color3.fromRGB(135, 2, 2) else NewNotification.BOT.BackgroundColor3 = Color3.fromRGB(9, 135, 0) end
 			NewNotification.Text.Text = NotificationText
 			NewNotification:TweenPosition(UDim2.new(0.97, 0, 0.85, 0),"InOut","Linear",0.2,true)
 		else
-			for i,v in pairs(Notifications) do
+			for i,v in pairs(Notifications2) do
 				v:TweenPosition(UDim2.new(0.97, 0, v.Position.Y.Scale - 0.12, 0),"InOut","Linear",0.2,true)
 			end
-			local NewNotification = UI.NotificationTemplate:Clone()
+			local NewNotification = NotificationTemplate:Clone()
 			NewNotification.Name = genRandomName()
-			NewNotification.Parent = UI.Notifications
-			if boolValue then NewNotification.BOT.BackgroundColor3 = Color3.fromRGB(135, 2, 2) else NewNotification.BOT.BackgroundColor3 = Color3.fromRGB(9, 135, 0) end
-			NewNotification.Text.Text = NotificationText
+			NewNotification.Parent = Notifications
+			if boolValue then NewNotification:FindFirstChildWhichIsA("Frame").BackgroundColor3 = Color3.fromRGB(135, 2, 2) else NewNotification:FindFirstChildOfClass("Frame").BackgroundColor3 = Color3.fromRGB(9, 135, 0) end
+			NewNotification:FindFirstChildWhichIsA("TextLabel").Text = NotificationText
 			NewNotification:TweenPosition(UDim2.new(0.97, 0, 0.85, 0),"InOut","Linear",0.2,true)
 			delay(NotificationDuration,function()
 				NewNotification:TweenPosition(UDim2.new(1.5, 0, NewNotification.Position.Y.Scale, 0),"InOut","Linear",0.2,true);wait(0.2)
