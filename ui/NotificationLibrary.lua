@@ -2,7 +2,7 @@
 -- Version: 3.2
 
 -- Functions:
-
+print("Notifications Alpha")
 local function genRandomName()
 	local nameData = ""
 	for i = 0,15 do
