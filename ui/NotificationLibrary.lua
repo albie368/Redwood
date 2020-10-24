@@ -85,7 +85,7 @@ BOT.ZIndex = 6
 			NewNotification.Text.Text = NotificationText
 			NewNotification:TweenPosition(UDim2.new(0.97, 0, 0.85, 0),"InOut","Linear",0.2,true)
 		wait(0.2)
-			NewNotification:FindFirstChildOfClass("Frame"):TweenPosition(UDim2.new(1, 0,0.068, 0),"InOut","Quad",0.5)
+			NewNotification:FindFirstChildWhichIsA("Frame"):TweenPosition(UDim2.new(1, 0,0.068, 0),"InOut","Quad",0.5)
 		else
 			for i,v in pairs(Notifications2) do
 				v:TweenPosition(UDim2.new(0.97, 0, v.Position.Y.Scale - 0.12, 0),"InOut","Linear",0.2,true)
@@ -98,7 +98,9 @@ BOT.ZIndex = 6
 			NewNotification:FindFirstChildWhichIsA("TextLabel").Text = NotificationText
 			NewNotification:TweenPosition(UDim2.new(0.97, 0, 0.85, 0),"InOut","Linear",0.2,true)
 			delay(NotificationDuration,function()
-				NewNotification:TweenPosition(UDim2.new(1.5, 0, NewNotification.Position.Y.Scale, 0),"InOut","Linear",0.2,true);NewNotification:FindFirstChildOfClass("Frame"):TweenPosition(UDim2.new(1, 0,0.068, 0),"InOut","Quad",0.5);wait(0.2)
+				NewNotification:TweenPosition(UDim2.new(1.5, 0, NewNotification.Position.Y.Scale, 0),"InOut","Linear",0.2,true)
+				NewNotification:FindFirstChildWhichIsA("Frame"):TweenPosition(UDim2.new(1, 0,0.068, 0),"InOut","Quad",0.5)
+				wait(0.2)
 	
 				NewNotification:Destroy()
 			end)
