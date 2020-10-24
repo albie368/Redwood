@@ -56,12 +56,12 @@ Text.TextWrapped = true
 
 BOT.Name = genRandomName()
 BOT.Parent = NotificationTemplate
-BOT.AnchorPoint = Vector2.new(0.5, 0.5)
 BOT.BackgroundColor3 = Color3.fromRGB(9, 135, 0)
 BOT.BorderSizePixel = 0
-BOT.Position = UDim2.new(0.5, 0, 0.96018523, 0)
-BOT.Size = UDim2.new(0.0653771311, 0, 0.067618072, 0)
+BOT.Position = UDim2.new(0, 0, 0.932381868, 0)
+BOT.Size = UDim2.new(1, 0, 0.067618072, 0)
 BOT.ZIndex = 6
+
 
 
 
@@ -84,8 +84,7 @@ BOT.ZIndex = 6
 			if boolValue then NewNotification:FindFirstChildWhichIsA("Frame").BackgroundColor3 = Color3.fromRGB(135, 2, 2) else NewNotification:FindFirstChildOfClass("Frame").BackgroundColor3 = Color3.fromRGB(9, 135, 0) end
 			NewNotification:FindFirstChildWhichIsA("TextLabel").Text = NotificationText
 			NewNotification:TweenPosition(UDim2.new(0.97, 0, 0.85, 0),"InOut","Linear",0.2,true)
-		wait(0.2)
-			NewNotification:FindFirstChildWhichIsA("Frame"):TweenPosition(UDim2.new(1, 0,0.068, 0),"InOut","Quad",0.5)
+		
 		else
 			for i,v in pairs(Notifications2) do
 				v:TweenPosition(UDim2.new(0.97, 0, v.Position.Y.Scale - 0.12, 0),"InOut","Linear",0.2,true)
@@ -99,7 +98,7 @@ BOT.ZIndex = 6
 			NewNotification:TweenPosition(UDim2.new(0.97, 0, 0.85, 0),"InOut","Linear",0.2,true)
 			delay(NotificationDuration,function()
 				NewNotification:TweenPosition(UDim2.new(1.5, 0, NewNotification.Position.Y.Scale, 0),"InOut","Linear",0.2,true)
-				NewNotification:FindFirstChildWhichIsA("Frame"):TweenPosition(UDim2.new(1, 0,0.068, 0),"InOut","Quad",0.5)
+				
 				wait(0.2)
 	
 				NewNotification:Destroy()
