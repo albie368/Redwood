@@ -80,9 +80,9 @@ BOT.ZIndex = 6
 			end
 			local NewNotification = NotificationTemplate:Clone()
 			NewNotification.Name = genRandomName()
-			NewNotification.Parent = UI.Notifications
-			if boolValue then NewNotification.BOT.BackgroundColor3 = Color3.fromRGB(135, 2, 2) else NewNotification.BOT.BackgroundColor3 = Color3.fromRGB(9, 135, 0) end
-			NewNotification.Text.Text = NotificationText
+			NewNotification.Parent = Notifications
+			if boolValue then NewNotification:FindFirstChildWhichIsA("Frame").BackgroundColor3 = Color3.fromRGB(135, 2, 2) else NewNotification:FindFirstChildOfClass("Frame").BackgroundColor3 = Color3.fromRGB(9, 135, 0) end
+			NewNotification:FindFirstChildWhichIsA("TextLabel").Text = NotificationText
 			NewNotification:TweenPosition(UDim2.new(0.97, 0, 0.85, 0),"InOut","Linear",0.2,true)
 		wait(0.2)
 			NewNotification:FindFirstChildWhichIsA("Frame"):TweenPosition(UDim2.new(1, 0,0.068, 0),"InOut","Quad",0.5)
