@@ -56,10 +56,11 @@ Text.TextWrapped = true
 
 BOT.Name = genRandomName()
 BOT.Parent = NotificationTemplate
+BOT.AnchorPoint = Vector2.new(0.5, 0.5)
 BOT.BackgroundColor3 = Color3.fromRGB(9, 135, 0)
 BOT.BorderSizePixel = 0
-BOT.Position = UDim2.new(0, 0, 0.932381868, 0)
-BOT.Size = UDim2.new(1, 0, 0.067618072, 0)
+BOT.Position = UDim2.new(0.5, 0, 0.96018523, 0)
+BOT.Size = UDim2.new(0.0653771311, 0, 0.067618072, 0)
 BOT.ZIndex = 6
 
 
