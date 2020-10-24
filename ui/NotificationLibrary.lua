@@ -84,6 +84,8 @@ BOT.ZIndex = 6
 			if boolValue then NewNotification.BOT.BackgroundColor3 = Color3.fromRGB(135, 2, 2) else NewNotification.BOT.BackgroundColor3 = Color3.fromRGB(9, 135, 0) end
 			NewNotification.Text.Text = NotificationText
 			NewNotification:TweenPosition(UDim2.new(0.97, 0, 0.85, 0),"InOut","Linear",0.2,true)
+		wait(0.2)
+			NewNotification:FindFirstChildOfClass("Frame"):TweenPosition(Udim2.new(1, 0,0.068, 0),"InOut","Quad",0.5)
 		else
 			for i,v in pairs(Notifications2) do
 				v:TweenPosition(UDim2.new(0.97, 0, v.Position.Y.Scale - 0.12, 0),"InOut","Linear",0.2,true)
@@ -92,10 +94,12 @@ BOT.ZIndex = 6
 			NewNotification.Name = genRandomName()
 			NewNotification.Parent = Notifications
 			if boolValue then NewNotification:FindFirstChildWhichIsA("Frame").BackgroundColor3 = Color3.fromRGB(135, 2, 2) else NewNotification:FindFirstChildOfClass("Frame").BackgroundColor3 = Color3.fromRGB(9, 135, 0) end
+			
 			NewNotification:FindFirstChildWhichIsA("TextLabel").Text = NotificationText
 			NewNotification:TweenPosition(UDim2.new(0.97, 0, 0.85, 0),"InOut","Linear",0.2,true)
 			delay(NotificationDuration,function()
-				NewNotification:TweenPosition(UDim2.new(1.5, 0, NewNotification.Position.Y.Scale, 0),"InOut","Linear",0.2,true);wait(0.2)
+				NewNotification:TweenPosition(UDim2.new(1.5, 0, NewNotification.Position.Y.Scale, 0),"InOut","Linear",0.2,true);NewNotification:FindFirstChildOfClass("Frame"):TweenPosition(Udim2.new(1, 0,0.068, 0),"InOut","Quad",0.5);wait(0.2)
+	
 				NewNotification:Destroy()
 			end)
 		end
